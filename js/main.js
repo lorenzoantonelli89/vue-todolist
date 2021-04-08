@@ -3,15 +3,17 @@ function initVue() {
         el: '#app',
         data: {
             'todos': [],
-            'todo': ''
+            'todo': '',
         },
         methods: {
             addTodo: function () {
-                this.todos.push(this.todo);
+                if (!this.todo == '') {
+                    this.todos.push(this.todo);
+                }
                 this.todo = '';
             },
-            deleteTodo: function () {
-                
+            deleteTodo: function (index) {
+                this.todos.splice(index, 1)
             }
         }
     });
